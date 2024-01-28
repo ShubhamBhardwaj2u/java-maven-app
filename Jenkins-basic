@@ -9,7 +9,7 @@ pipeline{
 
   parameters{
     	choice(name: 'VERSION', choices: ['1.0.0','1.0.1','1.0.3'], description: 'this is descrip')
-      booleanParam(name: 'executableTest', defaultValue: true, discription: 'this is booleanDescrip')
+      booleanParam(name: 'executableTest', defaultValue: true, description: 'this is booleanDescrip')
   }
   stages{
       stage("Testing"){
