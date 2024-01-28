@@ -40,28 +40,27 @@ pipeline{
           }
        steps{
           script{
+            env.INPT = input message: "Select type of language", ok: "Submit", parameters: [choice(name: 'selections', choices: ['java', 'python','groovy'], description: '')]            
             gv.buildApp()
+            echo "type is ${INPT}"
           }
         }
       }
       stage("Deploying"){
-    /*    input{
+        input{
           message "Select the environment to deploy."
           ok "Deploy"
           parameters{
             choice(name: 'one_Environment', choices: ['dev', 'staging','prod'], description: '')
             choice(name: 'two_Environment', choices: ['dev', 'staging','prod'], description: '')
           }
-        }*/
+        }
         steps{
           script{
-env.INPT = inpt message: "Select type of language", ok: "Submit", parameters: [choice(name: 'selections', choices: ['java', 'python','groovy'], description: '')]            
-echo "type is ${INPT}"
-/*
             gv.deployApp()
             echo "Deployimh to ${one_Environment}"
             echo "Deployimh to ${two_Environment}"
-  */        }
+          }
         }
       }
   }
