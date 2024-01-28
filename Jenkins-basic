@@ -4,7 +4,7 @@ pipeline{
     stages{
       when{
         expression{
-          BRANCH_NAME = "dev" || BRANCH_NAME = "main"
+          BRANCH_NAME == 'dev' || BRANCH_NAME == 'main'
         }
       }
       stage("Testing"){
