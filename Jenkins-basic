@@ -49,7 +49,7 @@ pipeline{
           message "Select the environment to deploy."
           ok "Deploy"
           parameters{
-            choice(name: 'Environments', choices: ['dev', 'staging'.'prod'], description: '')
+            choice(name: 'Environments', choices: ['dev', 'staging','prod'], description: '')
           }
         }
         steps{
