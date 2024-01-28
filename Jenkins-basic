@@ -6,6 +6,11 @@ pipeline{
   tools{
   maven 'Maven 3.9.6'
   }
+
+  parameters{
+    	choice(name: 'VERSION', choices: '['1.0.0','1.0.1','1.0.3']', description: 'this is descrip')
+      booleanParam(name: 'executableTest', defaultValue: true, discription: 'this is booleanDescrip'
+  }
   stages{
       stage("Testing"){
         steps{
@@ -16,12 +21,18 @@ pipeline{
       }
       stage("Building"){
        steps{
+          when{
+            expression{
+              params.exicutableTest == true
+            }
+          }
           echo "Building is running!"
         }
       }
       stage("Deploying"){
         steps{
           echo "Deploying is running!"
+          echo "Deployment version: ${params.VERSION}"
         }
       }
   }
