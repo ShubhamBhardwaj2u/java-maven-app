@@ -39,13 +39,16 @@ pipeline{
             }
           }
        steps{
-          echo "Building is running!"
+          script{
+            gv.buildApp()
+          }
         }
       }
       stage("Deploying"){
         steps{
-          echo "Deploying is running!"
-          echo "Deployment version: ${params.VERSION}"
+          script{
+            gv.deployApp()
+          }
         }
       }
   }
