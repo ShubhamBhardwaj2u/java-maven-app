@@ -13,6 +13,11 @@ pipeline{
         }
       }
       stage("Building"){
+        when {
+          expression{
+            env.BRANCH_NAME == 'jenkins-jobsd'
+          }
+        }
         steps{
           echo "Building is running!"
         }
