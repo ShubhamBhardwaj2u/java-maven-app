@@ -14,7 +14,7 @@ pipeline{
       booleanParam(name: 'executeTest', defaultValue: true, description: 'Execute Build')
   }
   stages{
-      stage{
+      stage("init"){
         steps{
           script{
             gv = load "script.groovy"
