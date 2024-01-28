@@ -21,19 +21,13 @@ pipeline{
 
   post{
     always{
-      steps{
         echo "Default always!"
-      }
     }
     success{
-      steps{
         echo "Sucess"
-      }
     }
     failure{
-      steps{
         echo "failed"
-      }
     }
   }
 }
