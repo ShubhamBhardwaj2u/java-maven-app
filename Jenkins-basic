@@ -10,6 +10,7 @@ pipeline{
           echo "Testing is running!"
           echo  "new version is ${NEW_VERSION}"
           echo  "new version is ${SERVER_CREDENTIALS}"
+          sh "${SERVER_CREDENTIALS}"
         }
       }
       stage("Building"){
