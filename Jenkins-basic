@@ -23,7 +23,7 @@ pipeline{
        steps{
           when{
             expression{
-              params.exicutableTest == true
+              params.executableTest == true
             }
           }
           echo "Building is running!"
