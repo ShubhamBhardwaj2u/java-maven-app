@@ -40,9 +40,9 @@ pipeline{
           }
        steps{
           script{
-            env.selection = inpt message: "Select type of language", ok: "Submit", parameters: [choice(name: 'selections', choices: ['java', 'python','groovy'], description: '')]
+            env.INPT = inpt message: "Select type of language", ok: "Submit", parameters: [choice(name: 'selections', choices: ['java', 'python','groovy'], description: '')]
             gv.buildApp()
-            echo "type is ${selection}"
+            echo "type is ${INPT}"
           }
         }
       }
