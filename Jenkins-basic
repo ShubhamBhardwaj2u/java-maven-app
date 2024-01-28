@@ -2,12 +2,12 @@ pipeline{
   agent any
 
     stages{
-      when{
-        expression{
-          BRANCH_NAME == 'dev' || BRANCH_NAME == 'main'
-        }
-      }
       stage("Testing"){
+        when {
+          expression{
+            BRANCH_NAME == 'dev' || BRANCH_NAME == 'main'
+          }
+        }
         steps{
           echo "Testing is running!"
         }
