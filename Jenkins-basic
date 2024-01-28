@@ -32,11 +32,11 @@ pipeline{
         }
       }
       stage("Building"){
-        when {
+        /* when {
             expression{
               params.executeTest == true
             }
-          }
+          }  */
        steps{
           script{
             gv.buildtApp()
