@@ -19,7 +19,7 @@ pipeline{
         steps{
           echo "Deploying is running!"
           withCredentials([
-            usernamePassword(credentials: 'server_credentials', userVariable: USER, passwordVariable: PWD)
+            usernamePassword(credentials: 'server_credentials', usernameVariable: USER, passwordVariable: PWD)
           ]) {
             //
           }
