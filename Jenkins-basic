@@ -20,6 +20,7 @@ pipeline{
         }*/
         steps{
           echo "Building is running!"
+          echo env.BRANCH_NAME
         }
       }
       stage("Deploying"){
