@@ -41,6 +41,7 @@ pipeline{
           script{
             gv.buildtApp()
           }
+        }
       }
       stage("Deploying"){
         steps{
