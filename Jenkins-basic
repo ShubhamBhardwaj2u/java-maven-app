@@ -8,8 +8,9 @@ pipeline{
   }
 
   parameters{
-    	choice(name: 'VERSION', choices: ['1.0.0','1.0.1','1.0.3'], description: 'this is descrip')
-      booleanParam(name: 'executeTest', defaultValue: true, description: 'this is booleanDescrip')
+      string(name: 'VERSION', defaultValue: 'New Version', Discription: 'Select the version to build')
+    	choice(name: 'VERSION', choices: ['1.0.0','1.0.1','1.0.3'], description: 'Select the version to build')
+      booleanParam(name: 'executeTest', defaultValue: true, description: 'Execute Build')
   }
   stages{
       stage("Testing"){
