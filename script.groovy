@@ -8,6 +8,7 @@ def buildApp(){
 
 def deployApp(){
   echo "Deployment is running!"
+  echo "Deployment version is ${VERSION}"
 }
 
 return this
