@@ -8,7 +8,7 @@ def buildANndDeploy(){
           withCredentials([
             usernamePassword(credentialsId: 'azure cr', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
           ]){
-            sh "docker build -t privatecr.azurecr.io/application:1.2 ."
+            sh "docker build -t privatecr.azurecr.io/application:1.3 ."
             sh "echo $PASSWORD | docker login privatecr.azurecr.io -u $USERNAME --password-stdin"
             sh "docker push privatecr.azurecr.io/application:1.3"
           }
