@@ -8,7 +8,7 @@ pipeline{
     maven 'Maven 3.9.6'
   }
   parameters{
-    string(name: 'Pipeline', defaultValue: 'My Pipeline', desciption: 'Select name for pipeline run.')
+    string(name: 'Pipeline', defaultValue: 'My Pipeline', description: 'Select name for pipeline run.')
     choice(name: 'VERSION', choices: ['1.0.0','1.1.0','1.2.0'], description: 'Select new version')
     booleanParam(name: 'Build', defaultValue: true, description: 'Build Application')
   }
