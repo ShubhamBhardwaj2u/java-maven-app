@@ -49,6 +49,13 @@ pipeline{
       }
     }
     stage("Deploying"){
+      input{
+      message 'Select the deployment server'
+      ok 'Deploy'
+      parameters{
+          choice(name: 'Deployment', choices: ['dev','test','prod'], description: '')
+        }
+      }
       steps{
         script{
           withCredentials([
@@ -59,6 +66,7 @@ pipeline{
         }
         script{
           gv.appDeploy()
+          echo "Deployment done with ${Deployment}"
         }
       }
     }
