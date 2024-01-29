@@ -1,3 +1,4 @@
+
 pipeline{
   agent any
   environment{
@@ -7,7 +8,7 @@ pipeline{
     stage("Testing"){
       when{
         expression{
-          NEW_VERSION == "1.0"
+          NEW_VERSION == "1.0.0"
         }
       }
       steps{
@@ -21,7 +22,14 @@ pipeline{
     }
     stage("Deploying"){
       steps{
-        echo "Deploying Application"
+        script{
+          withCredentials([
+            usernamePassword(credentialsId: 'server_credentials', usernameVariable: 'USER', passwordVariable: 'PWD')
+          ]){
+            print "username=" + USER + "  " + "password=" + PWD 
+          }
+        }
+        //echo "Deploying Application"
       }
     }
   }
