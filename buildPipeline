@@ -5,7 +5,7 @@ pipeline{
     maven 'Maven 3.9.6'
   }
   stages{
-    stage(){
+    stage("init"){
       steps{
         script{
           gv = load "buildPipelineScript.groovy"
