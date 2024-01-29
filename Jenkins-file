@@ -4,6 +4,9 @@ pipeline{
   environment{
     NEW_VERSION = "1.0.0"
   }
+  tools{
+    maven 'Maven 3.9.6'
+  }
   stages{
     stage("Testing"){
       when{
@@ -13,6 +16,7 @@ pipeline{
       }
       steps{
         echo "Running test!"
+        sh mvn --v
       }
     }
     stage("Building"){
