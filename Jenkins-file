@@ -44,7 +44,8 @@ pipeline{
       }
       steps{
         script{
-          env.INPT = input message: 'Select build type.', ok: 'Build', parameter: [choice(name: 'Build_Type', choices: ['Java','Python'], description: '')]
+          env.INPT = input message: 'Select build type.', ok: 'Build', parameters: [choice(name: 'Build_Type', choices: ['Java','Python'], description: '')]
+ 
           gv.appBuild()
           echo "Build application with ${INPT}"
         }
