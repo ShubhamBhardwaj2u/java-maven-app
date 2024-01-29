@@ -1,4 +1,4 @@
-
+def gv
 pipeline{
   agent any
   environment{
@@ -13,6 +13,9 @@ pipeline{
     booleanParam(name: 'Build', defaultValue: true, description: 'Build Application')
   }
   stages{
+    stage("init"){
+      gv = load script.groovy
+    }
     stage("Testing"){
       when{
         expression{
@@ -20,8 +23,13 @@ pipeline{
         }
       }
       steps{
+        script{
+          gv.appTest()
+        }
+        /*
         echo "Running test!"
         sh "mvn --v"
+        */
       }
     }
     stage("Building"){
@@ -31,7 +39,9 @@ pipeline{
         }
       }
       steps{
-        echo "Building Application!"
+        script{
+          gv.appBuild()
+        }
       }
     }
     stage("Deploying"){
@@ -43,7 +53,9 @@ pipeline{
             print "username=" + USER + "  " + "password=" + PWD 
           }
         }
-        echo "Deploying version ${params.VERSION}"
+        script{
+          gv.appDeploy()
+        }
       }
     }
   }
