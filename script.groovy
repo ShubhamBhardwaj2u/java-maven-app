@@ -1,14 +1,13 @@
-def testApp(){
-  echo "Testing is running!"
+def appTest(){
+  echo "Testing the application"
 }
 
-def buildApp(){
-  echo "Building is running!"
+def appBuild(){
+  echo "Building the application"
 }
 
-def deployApp(){
-  echo "Deployment is running!"
-  echo "Deployment version is ${VERSION}"
+def appDeploy(){
+  echo "Deploying the application"
 }
 
 return this
