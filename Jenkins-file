@@ -7,6 +7,11 @@ pipeline{
   tools{
     maven 'Maven 3.9.6'
   }
+  parameters{
+    string(name: 'Pipeline', defaultValue: 'My Pipeline', desciption: 'Select name for pipeline run.')
+    choice(name: 'VERSION', choices: ['1.0.0','1.1.0','1.2.0'], description: 'Select new version')
+    booleanParam(name: 'Build', defaultValue: true, description: 'Build Application')
+  }
   stages{
     stage("Testing"){
       when{
@@ -33,7 +38,7 @@ pipeline{
             print "username=" + USER + "  " + "password=" + PWD 
           }
         }
-        //echo "Deploying Application"
+        echo "Deploying version ${params.Build}"
       }
     }
   }
