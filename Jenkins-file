@@ -38,7 +38,7 @@ pipeline{
             print "username=" + USER + "  " + "password=" + PWD 
           }
         }
-        echo "Deploying version ${params.Build}"
+        echo "Deploying version ${params.VERSION}"
       }
     }
   }
