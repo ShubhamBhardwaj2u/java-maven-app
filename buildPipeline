@@ -1,28 +1,28 @@
+def gv
 pipeline{
   agent any
   tools{
     maven 'Maven 3.9.6'
   }
   stages{
+    stage(){
+      steps{
+        script{
+          gv = load "buildPipelineScript.groovy"
+        }
+      }
+    }
     stage("Build Jar"){
       steps{
         script{
-          echo "Building the application"
-          sh "mvn package"
+          gv.buildApp()
         }
       }
     }
     stage("Build image a"){
       steps{
         script{
-          echo "Building image and deploying!"
-          withCredentials([
-            usernamePassword(credentialsId: 'azure cr', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
-          ]){
-            sh "docker build -t privatecr.azurecr.io/application:1.2 ."
-            sh "echo $PASSWORD | docker login privatecr.azurecr.io -u $USERNAME --password-stdin"
-            sh "docker push privatecr.azurecr.io/application:1.2"
-          }
+         gv.buildANndDeploy()
         }
       }
     }
