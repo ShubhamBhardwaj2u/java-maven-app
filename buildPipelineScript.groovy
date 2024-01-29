@@ -10,7 +10,7 @@ def buildANndDeploy(){
           ]){
             sh "docker build -t privatecr.azurecr.io/application:1.2 ."
             sh "echo $PASSWORD | docker login privatecr.azurecr.io -u $USERNAME --password-stdin"
-            sh "docker push privatecr.azurecr.io/application:1.2"
+            sh "docker push privatecr.azurecr.io/application:1.3"
           }
 }
 
