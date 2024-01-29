@@ -8,6 +8,7 @@ def appBuild(){
 
 def appDeploy(){
   echo "Deploying the application"
+  echo "Deploying version ${params.VERSION}"
 }
 
 return this
