@@ -17,15 +17,17 @@ pipeline{
       }
     }
   }
-}
-posts{
-  always{ 
-    echo "Process End!"
+
+  post{
+    always{ 
+      echo "Process End!"
+    }
+    success{
+      echo "Completed with success!"
+    }
+    failure{
+      echo "failed!"
+    }
   }
-  success{
-    echo "Completed with success!"
-  }
-  failure{
-    echo "failed!"
-  }
+
 }
