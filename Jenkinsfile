@@ -19,12 +19,12 @@ pipeline {
             }
         }
         stage("build image") {
-            steps {
-                when {
+            when {
                     expression{
                         BRANCH_NAME == "main"
                     }
                 }
+            steps {
                 script {
                     echo "building image"
                     //gv.buildImage()
@@ -32,12 +32,12 @@ pipeline {
             }
         }
         stage("deploy") {
-            steps {
-                when {
+            when {
                     expression{
                         BRANCH_NAME == "main"
                     }
                 }
+            steps {
                 script {
                     echo "deploying"
                     //gv.deployApp()
