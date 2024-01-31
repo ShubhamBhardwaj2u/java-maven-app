@@ -1,10 +1,29 @@
+def gv
+
 pipeline{
     agent any
+    tools{
+        maven 'Maven 3.9.6'
+    }
     stages{
-      stage(){
-        script{
-          //
-        }
-      }
+        stage("init"){
+            script{
+              gv = load "scriptv1.0.0.groovy"
+            }
+          }
+        stage("Build APP"){
+            script{
+              gv.buildApp()
+            }
+          }
+        stage("Create image and deploy"){
+            script{
+              withCredentials([
+                usernamePassword(credentialsId: '', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
+              ]){
+                gv.deployApp()
+              }
+            }
+          }
     }
 }
