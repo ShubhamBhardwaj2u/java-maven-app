@@ -23,11 +23,7 @@ pipeline{
         stage("Create image and deploy"){
             steps{
                 script{
-                  withCredentials([
-                    usernamePassword(credentialsId: '', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
-                  ]){
-                    gv.deployApp()
-                  }
+                  gv.deployApp()
                 }
             }
           }
