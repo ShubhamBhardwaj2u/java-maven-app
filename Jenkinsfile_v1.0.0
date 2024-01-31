@@ -7,8 +7,10 @@ pipeline{
     }
     stages{
         stage("init"){
-            script{
-              gv = load "scriptv1.0.0.groovy"
+            steps{
+                script{
+                  gv = load "scriptv1.0.0.groovy"
+                }
             }
           }
         stage("Build APP"){
@@ -17,12 +19,14 @@ pipeline{
             }
           }
         stage("Create image and deploy"){
-            script{
-              withCredentials([
-                usernamePassword(credentialsId: '', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
-              ]){
-                gv.deployApp()
-              }
+            steps{
+                script{
+                  withCredentials([
+                    usernamePassword(credentialsId: '', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
+                  ]){
+                    gv.deployApp()
+                  }
+                }
             }
           }
     }
