@@ -6,7 +6,7 @@ def buildApp(){
 def deployApp(){
   echo "Deploying package"
                   withCredentials([
-                    usernamePassword(credentialsId: '', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
+                    usernamePassword(credentialsId: 'azure cr', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
                   ]){
                     sh "docker build -t privatecr.azurecr.io/app:1.0.0 ."
                     sh "echo $PASSWORD | docker login privatecr.azurecr.io -u $USERNAME --password-stdin"
