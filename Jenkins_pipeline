@@ -4,6 +4,11 @@ pipeline{
   tools{
     maven 'Maven 3.9.6'
   }
+  parameters{
+    string(name: 'Pipeline Name', defaultValue: 'New Pipeline', description: '')
+    choice(name: 'Version', choices: ['1.0.0','1.1.0','1.2.0'], description: '')
+    booleanParam(name: 'Deployment', defaultValue: false , description: 'Select Deployment')
+  }
   stages{
     stage("Init"){
       steps{
