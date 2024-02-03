@@ -9,17 +9,17 @@ pipeline{
     }
     stage("Testing"){
       steps{
-        fnTest()
+        gv.fnTest()
       }
     }
     stage("Building"){
       steps{
-        fnBuild()
+        gv.fnBuild()
       }
     }
     stage("Deploying"){
       steps{
-        fnDeploy()
+        gv.fnDeploy()
       }
     }
   }
