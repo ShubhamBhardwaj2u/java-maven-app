@@ -1,10 +1,11 @@
 def fnTest(){
   echo "Testing!"
-  echo "Running pipeline ${Pipeline Name}"
+  echo "Running pipeline ${NAME}"
 }
 
 def fnBuild(){
   echo "Building!"
+  echo "Build version: $VERSION"
 }
 
 def fnDeploy(){
