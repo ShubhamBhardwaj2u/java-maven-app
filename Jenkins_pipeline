@@ -1,11 +1,15 @@
 def gv
 pipeline{
   agent any
+  tools{
+    maven 'Maven 3.9.6'
+  }
   stages{
     stage("Init"){
       steps{
         script{
           gv = load "jenkins_pipeline_script.groovy"
+          sh "mvn -v"
         }
       }
     }
