@@ -22,7 +22,6 @@ pipeline{
       steps{
         script{
           gv.fnTest()
-          
         }
       }
     }
@@ -34,6 +33,11 @@ pipeline{
       }
     }
     stage("Deploying"){
+      when{
+        expression{
+          params.DEPLOYMENT == true
+        }
+      }
       steps{
         script{
           gv.fnDeploy()
