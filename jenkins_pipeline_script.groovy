@@ -1,6 +1,6 @@
 def fnTest(){
   echo "Testing!"
-  echo "Running pipeline ${NAME}"
+  echo "Running pipeline $NAME"
 }
 
 def fnBuild(){
