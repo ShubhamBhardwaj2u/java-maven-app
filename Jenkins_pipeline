@@ -4,22 +4,30 @@ pipeline{
   stages{
     stage("Init"){
       steps{
-        gv = load "jenkins_pipeline_script.groovy"
+        script{
+          gv = load "jenkins_pipeline_script.groovy"
+        }
       }
     }
     stage("Testing"){
       steps{
-        gv.fnTest()
+        script{
+          gv.fnTest()
+        }
       }
     }
     stage("Building"){
       steps{
-        gv.fnBuild()
+        script{
+          gv.fnBuild()
+        }
       }
     }
     stage("Deploying"){
       steps{
-        gv.fnDeploy()
+        script{
+          gv.fnDeploy()
+        }
       }
     }
   }
