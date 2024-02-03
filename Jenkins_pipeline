@@ -1,34 +1,25 @@
+def gv
 pipeline{
   agent any
   stages{
+    stage("Init"){
+      steps{
+        gv = load "jenkins_pipeline_script.groovy"
+      }
+    }
     stage("Testing"){
       steps{
-        echo "Testing!"
+        fnTest()
       }
     }
     stage("Building"){
       steps{
-        echo "Building!"
+        fnBuild()
       }
     }
     stage("Deploying"){
       steps{
-        echo "Deploying!"
+        fnDeploy()
       }
     }
   }
-
-  post{
-  always{
-    echo "Finished!"
-  }
-  success{
-    echo "Done!"
-  }
-  failure{
-    echo "Failed!"
-  }
-}
-}
-
-
