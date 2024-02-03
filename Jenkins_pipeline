@@ -17,9 +17,8 @@ pipeline{
       }
     }
   }
-}
 
-post{
+  post{
   always{
     echo "Finished!"
   }
@@ -30,3 +29,6 @@ post{
     echo "Failed!"
   }
 }
+}
+
+
