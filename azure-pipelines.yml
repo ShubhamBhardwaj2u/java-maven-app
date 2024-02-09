@@ -17,7 +17,7 @@ stages:
   jobs:
   - job: Build
     displayName: Build
-    pool: mySelfHostedAgent
+    pool: MySelfHostedPool
     steps:
     - task: Docker@2
       displayName: Build an image
