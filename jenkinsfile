@@ -1,7 +1,16 @@
+def gv
 pipeline{
   agent any
   stages{
-    stage("Build"){
+  
+  stage("init"){
+      steps{
+        script{
+          gv = load "jenkinscript.groovy"
+        }
+      }
+    }  
+  stage("Build"){
       steps{
         echo "Building app"
       }
