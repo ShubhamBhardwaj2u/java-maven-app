@@ -1,8 +1,7 @@
 def gv
 pipeline{
   agent any
-  stages{
-  
+  stages{  
   stage("init"){
       steps{
         script{
@@ -12,17 +11,23 @@ pipeline{
     }  
   stage("Build"){
       steps{
-        echo "Building app"
+        script{
+          gv.buildApp()
+        }
       }
     }
     stage("Test"){
       steps{
-        echo "Testing app"
+        script{
+          gv.testApp()
+        }
       }
     }
     stage("Deploy"){
       steps{
-        echo "Deploying app"
+        script{
+          gv.deployApp()
+        }
       }
     }
   }
