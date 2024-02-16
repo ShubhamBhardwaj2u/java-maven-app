@@ -1,9 +1,13 @@
 def buildApp(){
   echo "Building app"
-  echo "New version = ${NEW_VERSION}"
+  echo "New version = ${NEW_VERSION}" // using environment variable
 }
 def testApp(){
-  echo "Testing app"
+  withCredentials([
+    usernamePassowrd(credentialsId: 'ShubhamBhardwaj2u', usernamevariable: 'USERNAME', passwordVariable: 'PASSWORD')
+  ]){
+     echo "username = ${USERNAME} and password = ${PASSWORD}" 
+  }
 }
 def deployApp(){
   echo "Deploying app"
