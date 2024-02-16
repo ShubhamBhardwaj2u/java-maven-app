@@ -14,6 +14,11 @@ pipeline{
     }  
   stage("Build"){
       steps{
+      withCredentials([
+        usernamePassword(credentialsId: 'ShubhamBhardwaj2u', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
+      ]){
+        echo "username = {USERNAME} AND password = {PASSWORD}"
+      }
         script{
           gv.buildApp()
         }
