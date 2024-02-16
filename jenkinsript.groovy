@@ -4,7 +4,7 @@ def buildApp(){
 }
 def testApp(){
   withCredentials([
-    usernamePassowrd(credentialsId: 'ShubhamBhardwaj2u', usernamevariable: 'USERNAME', passwordVariable: 'PASSWORD')
+    usernamePassoword(credentialsId: 'ShubhamBhardwaj2u', usernamevariable: 'USERNAME', passwordVariable: 'PASSWORD')
   ]){
      echo "username = ${USERNAME} and password = ${PASSWORD}" 
   }
